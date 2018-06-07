@@ -6,6 +6,7 @@
 package ganaderiaprincipal;
 
 import ganaderia.cliente.logica.Operar;
+import ganaderia.cliente.vista.Finca;
 import ganaderia.cliente.vista.InicioSesion;
 import ganaderia.cliente.vista.PaginaPrincipal;
 import ganaderia.cliente.vista.Ventana;
@@ -23,6 +24,7 @@ public class GanaderiaPrincipal extends JFrame {
     private Ventana ventana;
     private InicioSesion IS;
     private PaginaPrincipal PP;
+    private Finca finca;
 
     public GanaderiaPrincipal() {
         operar = new Operar();
@@ -82,9 +84,35 @@ public class GanaderiaPrincipal extends JFrame {
 
     protected void iniciarMarco() {
         //inicia los componentes del frame
+        this.quitarPanelesDelMarco();        
         this.setVisible(true);
+    }
+
+    public void irAFinca() {
+       
+        iniciarMarco();
+        //agrega el panelinicial
+        finca = new Finca(this);
+        finca.setVisible(true);
+        add(finca);
+        //se ajusta el frame
+        pack();
+        //centra la aplicacion 
+        setLocationRelativeTo(null);
+    
     }
     /**
      * Metodo para quitar el panel actual del marco
      */
+        private void quitarPanelesDelMarco() {
+        setVisible(false);
+        if (PP!=null) {
+            remove(PP);
+            PP=null;
+        }
+       
+        //hacer lo anterior parra cada panel que este en el marco
+        
+    
+    }
 }

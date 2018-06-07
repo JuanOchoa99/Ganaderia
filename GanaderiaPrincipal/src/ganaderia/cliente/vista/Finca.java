@@ -5,6 +5,8 @@
  */
 package ganaderia.cliente.vista;
 
+import ganaderiaprincipal.GanaderiaPrincipal;
+
 /**
  *
  * @author JJ
@@ -14,7 +16,10 @@ public class Finca extends javax.swing.JPanel {
     /**
      * Creates new form Finca
      */
-    public Finca() {
+    private GanaderiaPrincipal p;
+    
+    public Finca(GanaderiaPrincipal p) {
+        this.p=p;
         initComponents();
     }
 
